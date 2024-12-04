@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Enable password authentication
+# Disable password authentication
 sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
 
 # Enable public key authentication
