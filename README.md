@@ -8,6 +8,7 @@ Ensure following tools are installed on local machine
 
 1. Terraform 
 2. AWS CLI
+3. Authentication key
 
 ## Setup
 
@@ -25,7 +26,7 @@ terraform plan
 terraform apply --auto-approve
 ```
 
-2. Take note of the public IP addresses and use SSH to connect to either of the VMs.
+2. Take note of the public IP addresses and use SSH with key path to connect to either of VMs.
 
 ```sh
 ssh -i <path_to_private_key> ec2-user@<public_ip_address>
