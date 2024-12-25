@@ -7,3 +7,6 @@ sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_
 sed -i 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/' /etc/ssh/sshd_config
 
 systemctl restart sshd
+
+# install Ansible
+sudo dnf install -y ansible-core

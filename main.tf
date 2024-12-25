@@ -60,13 +60,6 @@ resource "aws_security_group" "rhel_sg" {
 
   }
 
-  # ingress {
-    
-  #     from_port   = 8080
-  #     to_port     = 8080
-  #     protocol    = "tcp"
-  #     cidr_blocks = ["0.0.0.0/0"]
-  # }
 
   egress {
     from_port   = 0
@@ -85,7 +78,7 @@ data "template_file" "user_data" {
   template = file("${path.module}/rhel_setup.sh")
 }
 
-# Create an EC2 Instance
+# Create EC2 Instance
 data "aws_ami" "rhel_ami" {
   most_recent = true
   owners      = ["amazon"]
