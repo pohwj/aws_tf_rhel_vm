@@ -80,12 +80,17 @@ data "template_file" "user_data" {
 
 # Create EC2 Instance
 data "aws_ami" "rhel_ami" {
-  most_recent = true
+  # most_recent = true
   owners      = ["amazon"]
   
   filter {
     name   = "name"
-    values = ["RHEL-9.*"]
+    values = ["RHEL-9.4.0_HVM-20241210-x86_64-0-Hourly2-GP3"]
+  }
+
+    filter {
+    name   = "architecture"
+    values = ["x86_64"]
   }
 }
 
@@ -104,7 +109,7 @@ resource "aws_instance" "rhel_instance" {
   user_data = data.template_file.user_data.rendered
 
   tags = {
-    Name = "rhel lab instance ${count.index + 1}"
+    Name = "rhel-lab-instance-${count.index + 1}"
   }
 }
 
