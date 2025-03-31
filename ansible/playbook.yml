@@ -1,0 +1,20 @@
+---
+- name: Update RHEL 9.4 and install Nginx
+  hosts: targets
+  become: yes
+  tasks:
+    - name: Update RHEL OS
+      ansible.builtin.dnf:
+        name: '*'
+        state: latest
+
+    - name: Install Nginx package
+      dnf: 
+        name: nginx
+        state: latest
+    
+    - name: Start and enable Nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
