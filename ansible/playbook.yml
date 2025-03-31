@@ -1,6 +1,8 @@
 ---
 - name: Update RHEL 9.4 and install Nginx
   hosts: targets
+  vars:
+    ansible_host_key_checking: false
   become: yes
   tasks:
     - name: Update RHEL OS
